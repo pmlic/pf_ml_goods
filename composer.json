@@ -1,5 +1,6 @@
 {
     "require": {
-        "php-ai/php-ml": "^0.8.0"
+        "php-ai/php-ml": "0.9.0",
+        "nancheng/pfinal-array": "v0.2.2"
     }
 }

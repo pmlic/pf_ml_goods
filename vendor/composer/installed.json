@@ -1,0 +1,121 @@
+{
+    "packages": [
+        {
+            "name": "nancheng/pfinal-array",
+            "version": "v0.2.2",
+            "version_normalized": "0.2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pfinalclub/pfinal-array.git",
+                "reference": "186178fe9341f59b29615094eb51db266598f164"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pfinalclub/pfinal-array/zipball/186178fe9341f59b29615094eb51db266598f164",
+                "reference": "186178fe9341f59b29615094eb51db266598f164",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6.2"
+            },
+            "time": "2020-05-26T08:01:51+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "pf\\arr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "南丞",
+                    "email": "Lampxiezi@163.com",
+                    "homepage": "http://friday-go.cc/"
+                }
+            ],
+            "description": "This is a PHP array manipulation middleware",
+            "homepage": "https://github.com/pfinalclub/pfinal-array",
+            "keywords": [
+                "Q哥",
+                "array",
+                "pfinal",
+                "php-array",
+                "南丞"
+            ],
+            "support": {
+                "issues": "https://github.com/pfinalclub/pfinal-array/issues",
+                "source": "https://github.com/pfinalclub/pfinal-array/tree/v0.2.2"
+            },
+            "install-path": "../nancheng/pfinal-array"
+        },
+        {
+            "name": "php-ai/php-ml",
+            "version": "0.9.0",
+            "version_normalized": "0.9.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/php-ai/php-ml.git",
+                "reference": "fd8b70629e16ed67307fe150ba25738449b9a6b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/php-ai%2Fphp-ml/repository/archive.zip?sha=fd8b70629e16ed67307fe150ba25738449b9a6b2",
+                "reference": "fd8b70629e16ed67307fe150ba25738449b9a6b2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpbench/phpbench": "^0.16.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/phpunit": "^8.0",
+                "symplify/easy-coding-standard": "^6.0"
+            },
+            "time": "2020-05-27T09:52:59+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Phpml\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arkadiusz Kondas",
+                    "email": "arkadiusz.kondas@gmail.com"
+                }
+            ],
+            "description": "PHP-ML - Machine Learning library for PHP",
+            "homepage": "https://github.com/php-ai/php-ml",
+            "keywords": [
+                "Neural network",
+                "artificial intelligence",
+                "computational learning theory",
+                "data science",
+                "feature extraction",
+                "machine learning",
+                "pattern recognition"
+            ],
+            "support": {
+                "issues": "https://gitlab.com/api/v4/projects/19024967/issues"
+            },
+            "install-path": "../php-ai/php-ml"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

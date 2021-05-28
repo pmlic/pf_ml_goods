@@ -1,7 +1,6 @@
-goods1,goods2,goods3,goods4,goods5,user
-4,0,0,5,1,a
-5,4,0,0,0,b
-0,0,2,4,0,c
-0,3,0,0,3,d
-
-
+goods1,goods2,user
+3.3,6.5|a
+5.8,2.6|b
+3.6,6.3|c
+3.4,5.8|d
+5.2,3.1|e
