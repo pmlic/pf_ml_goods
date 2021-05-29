@@ -14,7 +14,7 @@ use Phpml\Preprocessing\Imputer;
 class ProcessingData
 {
     protected $data_path;
-
+    protected $predict_data = [0,6.1];
     public function __construct($data_filename)
     {
         $this->data_path = __DIR__ . '/../data/' . $data_filename;
@@ -29,45 +29,31 @@ class ProcessingData
     public function get_similar_user()
     {
         try {
+            $tmp = [];
             $dataset = $this->get_data();
             $train_data = $dataset->getSamples();
-            $train_data = @\pf\arr\PFarr::pf_arr_remove_empty($train_data, '', true);
             $train_label = $dataset->getTargets();
-            $train_label = @\pf\arr\PFarr::pf_arr_remove_empty($train_label, '', true);
-            $train_list = $this->get_merge_data($train_label, $train_data);
-            // 计算商品的相似度
-            $similarity = $this->get_similarity($train_list);
-
-//            $classifier = new \Phpml\Classification\KNearestNeighbors($k = 3, new \Phpml\Math\Distance\Minkowski());
-//            $classifier->train($train_data, $train_label);
-//            $test_data = $dataset->getTestSamples();
-//            $test_data = @\pf\arr\PFarr::pf_arr_remove_empty($test_data, '', true);
-//            if (count($test_data) > 0) {
-//                $result = $classifier->predictProbability($test_data);
-//                print_r($result);
-//            }
+            foreach (range(1, 10) as $k) {
+                $correct = 0;
+                foreach ($dataset->getSamples() as $index => $sample) {
+                    $estimator = new \Phpml\Classification\KNearestNeighbors($k);
+                    $estimator->train($this->removeIndex($index, $dataset->getSamples()), $this->removeIndex($index, $dataset->getTargets()));
+                    $predicted = $estimator->predict([$sample]);
+                    var_dump($predicted);
+                    if ($predicted[0] == $train_label[$index]) {
+                        $correct++;
+                    }
+                }
+                echo sprintf('Accuracy (k=%s): %.02f%% correct: %s', $k, ($correct / count($train_data)) * 100, $correct) . PHP_EOL;
+            }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
 
-    private function get_merge_data($train_label, $train_data): array
-    {
-        $tmp_data = [];
-        $tmp = [];
-        foreach ($train_data as $k => $value) {
-            $tmp_data[$train_label[$k]] = $value[0];
-        }
-        foreach ($tmp_data as $k1 => $value1) {
-            foreach ($tmp_data as $k2 => $value2) {
-                if ($k2 != $k1 && !isset($tmp[$k1 . $k2]) && !isset($tmp[$k2 . $k1])) {
-                    $tmp_val_a = explode(',', $value1);
-                    $tmp_val_b = explode(',', $value2);
-                    $tmp[$k1 . $k2] = [$tmp_val_a, $tmp_val_b];
-                }
-            }
-        }
-        return $tmp;
+    private function removeIndex($index, $array) {
+        unset($array[$index]);
+        return $array;
     }
 }
 
